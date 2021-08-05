@@ -22,6 +22,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    'plugins/axios.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,5 +43,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // Shut up the Nuxt-induced warnings described here: https://github.com/nuxt/nuxt.js/issues/9224#issuecomment-893263501
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-property-in-object', { loose: true }]],
+    }
   }
 }
